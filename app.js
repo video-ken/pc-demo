@@ -1,4 +1,4 @@
-import phrases from "./data";
+import phrases from "./data.js";
 
 Object.entries(phrases).forEach(([time, text], index) => {
     let word = document.createElement('span');
