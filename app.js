@@ -1,5 +1,7 @@
 import phrases from "./data.js";
 
+const fragment = document.createDocumentFragment();
+
 Object.entries(phrases).forEach(([time, text], index) => {
     let word = document.createElement('span');
     word.classList.add("word");
@@ -8,8 +10,10 @@ Object.entries(phrases).forEach(([time, text], index) => {
     let dir = Math.max(0, 26 - text.length);
     word.setAttribute("data-dir", index % 2 === 0 ? dir : -1 * dir);
     word.style.left = Math.max((40 - text.length), 10) + '%';
-    preview.append(word);
+    fragment.append(word);
 });
+
+preview.append(fragment);
 
 let listener;
 
@@ -29,7 +33,7 @@ function movePreview(x) {
         if(time > percentage - 10 && time < percentage + 10) {
             let difference = Math.abs(percentage - time);
             word.style.opacity = 1;
-            word.style.transform = `translate(${dir}px, ${(percentage - time)*5}px) scale(${2 - difference/6})`;
+            word.style.transform = `translate(${dir}px, ${(percentage - time)*5}px) scale(${2 - difference/7})`;
         }
         else {
             word.style.opacity = 0;
@@ -46,7 +50,6 @@ timeline.addEventListener("pointerover", _ => {
         requestAnimationFrame(() => {
             movePreview(offset);
         });
-
     });
 });
 
