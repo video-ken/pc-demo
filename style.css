@@ -1,0 +1,47 @@
+body {
+    background-color: #eeeeee !important;
+}
+
+#container {
+    margin: 50px auto;
+    width: 800px;
+    height: 470px;
+    background: #666666;
+    position: relative;
+}
+
+#timeline {
+    position: absolute;
+    bottom: 40px;
+    height: 5px;
+    box-sizing: content-box;
+    border: 10px solid transparent;
+    right: 10px;
+    left: 10px;
+    background: #dddddd;
+    cursor: pointer;
+    background-clip: content-box;
+}
+
+#preview {
+    width: 220px;
+    height: 120px;
+    bottom: 67px;
+    left: 0;
+    position: absolute;
+    background: #262626;
+    opacity: 0;
+    /* transition: transform .1s ease; */
+    overflow: hidden;
+    padding: 10px;
+}
+
+.word {
+    position: absolute;
+    color: #eeeeee;
+    text-align: center;
+    top: 36%;
+    padding: 10px;
+    font-size: 12px;
+    transition: transform, opacity .2s linear;
+}
