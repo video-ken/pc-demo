@@ -3,13 +3,17 @@ import phrases from "./data.js";
 const fragment = document.createDocumentFragment();
 
 Object.entries(phrases).forEach(([time, text], index) => {
+    let length = text.length;
     let word = document.createElement('span');
     word.classList.add("word");
     word.textContent = text;
     word.setAttribute("data-time", time);
-    let dir = Math.max(0, 26 - text.length);
+    let dir = Math.max(0, 25 - length);
     word.setAttribute("data-dir", index % 2 === 0 ? dir : -1 * dir);
-    word.style.left = Math.max((40 - text.length), 10) + '%';
+    word.style.left = Math.max((45 - length), 10) + '%';
+    if(length > 25) {
+        word.style.letterSpacing = "-1px";
+    }
     fragment.append(word);
 });
 
