@@ -29,11 +29,23 @@ body {
     bottom: 67px;
     left: 0;
     position: absolute;
-    background: #262626;
+    background: rgb(30, 30, 30);
     opacity: 0;
-    /* transition: transform .1s ease; */
     overflow: hidden;
     padding: 10px;
+    --gradient-max: rgba(30, 30, 30, 0.7);
+    --gradient-min: rgba(100, 183, 255, 0);
+}
+
+#preview:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    z-index: 1;
+    background: linear-gradient(0deg, var(--gradient-max) 0%, var(--gradient-min) 50%, var(--gradient-max) 100%);
 }
 
 .word {

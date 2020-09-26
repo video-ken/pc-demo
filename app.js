@@ -37,7 +37,6 @@ function movePreview(x) {
         if(time > percentage - 10 && time < percentage + 10) {
             let difference = Math.abs(percentage - time);
             word.style.opacity = 1;
-            // word.style.opacity = 1 - Math.abs(percentage - time)/20;
             word.style.transform = `translate(${dir}px, ${(percentage - time)*5}px) scale(${2 - difference/7})`;
         }
         else {
